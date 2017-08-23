@@ -1,0 +1,10 @@
+# Git ignores variable files in case of a password mistake.
+# This will not ignore our *.tfvars.template files.
+*.tfvars
+
+# Compiled files
+*.tfstate
+*.tfstate.backup
+
+# Module directory
+.terraform/
