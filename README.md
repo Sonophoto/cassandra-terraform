@@ -2,7 +2,7 @@
 
 Follow these steps to get a 3 node cassandra cluster up and running, back it up with ebs snapshots, tear it down and restore from ebs snapshots.
 
-Install terraform last tested at ```Terraform v0.8.7```.
+Install terraform last tested at ```Terraform v0.10.0```.
   
   ```sudo apt update```
   
@@ -19,9 +19,16 @@ road. Details: [Setup an AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/Ge
 
 Remember the vpc_id when you create the VPC, terraform needs that info in the next step.
 
-Populate terraform.tfvars with proper values. run
+Populate terraform.tfvars with proper values.
+
+Download plugin modules and install them, run
   ```
   terraform get
+  ```
+
+Initialize the terraform directory and load plugin modules, run
+  ```
+  terraform init
   ```
 
 That should bring down the external module for cassandra security groups. run
