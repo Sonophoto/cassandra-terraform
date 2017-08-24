@@ -13,25 +13,25 @@ create a new ```.tfvars``` file by copying the template file ```terraform.tfvars
   cp terraform.tfvars.template terraform.tfvars
   ```
 
+Now populate the terraform.tfvars file with values, terraform will request any missing values during planning.
+
 Create a vpc with cidr block "172.31.0.0/16" and allow public hostnames and dns resolution.
 If you don't allow public hostnames and dns nothing will work and may fail mysterously down the
 road. Details: [Setup an AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/GettingStartedGuide/getting-started-ipv4.html) 
 
-Remember the vpc_id when you create the VPC, terraform needs that info in the next step.
-
-Populate terraform.tfvars with proper values.
+Remember the vpc_id when you create the VPC, terraform needs that info in the planning phase.
 
 Download plugin modules and install them, run
   ```
   terraform get
   ```
 
-Initialize the terraform directory and load plugin modules, run
+That should bring down the external module for cassandra security groups, run
   ```
   terraform init
   ```
 
-That should bring down the external module for cassandra security groups. run
+That will initialize the terraform directory and load plugin modules, run
   ```
   terraform plan
   ```
